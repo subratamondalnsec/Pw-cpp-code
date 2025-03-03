@@ -1,0 +1,33 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity three_decoder is
+    Port (
+        ad : in STD_LOGIC;
+        bd : in STD_LOGIC;
+        ed : in STD_LOGIC;
+        zd : out STD_LOGIC_VECTOR (7 downto 0)
+    );
+end three_decoder;
+
+architecture Behavioral of three_decoder is
+
+    component decoder is
+        Port (
+            a : in STD_LOGIC;
+            b : in STD_LOGIC;
+            enable : in STD_LOGIC;
+            z : out STD_LOGIC_VECTOR (3 downto 0)
+        );
+    end component;
+
+    signal sig1, sig2: STD_LOGIC;
+
+begin 
+    sig1 <= NOT ed;
+    sig2 <= ed;
+
+    D1: decoder port map (a => ad, b => bd, enable => sig1, z => zd(3 downto 0));
+    D2: decoder port map (a => ad, b => bd, enable => sig2, z => zd(7 downto 4));
+
+end Behavioral;
