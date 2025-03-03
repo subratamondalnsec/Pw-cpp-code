@@ -1,0 +1,24 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity demux is
+    Port (
+        I : in STD_LOGIC;
+        S : in STD_LOGIC_VECTOR (1 downto 0);
+        O : out STD_LOGIC_VECTOR (3 downto 0)
+    );
+end demux;
+
+architecture Behavioral of demux is
+begin
+    process(I, S)
+    begin
+        O <= "0000"; -- Default all outputs to 0
+        case S is
+            when "00" => O(0) <= I;
+            when "01" => O(1) <= I;
+            when "10" => O(2) <= I;
+            when others => O(3) <= I;
+        end case;
+    end process;
+end Behavioral;
