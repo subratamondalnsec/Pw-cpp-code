@@ -1,0 +1,30 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity decoder is
+    Port (
+        a : in STD_LOGIC;
+        b : in STD_LOGIC;
+        enable : in STD_LOGIC;
+        z : out STD_LOGIC_VECTOR (3 downto 0)
+    );
+end decoder;
+
+architecture Behavioral of decoder is
+begin
+    process(a, b, enable)
+        variable abar, bbar : STD_LOGIC;
+    begin
+        abar := NOT a;
+        bbar := NOT b;
+        
+        if enable = '1' then
+            z(0) <= abar AND bbar;
+            z(1) <= abar AND b;
+            z(2) <= a AND bbar;
+            z(3) <= a AND b;
+        else
+            z <= "0000"; -- Default output instead of "UUUU"
+        end if;
+    end process;
+end Behavioral;
