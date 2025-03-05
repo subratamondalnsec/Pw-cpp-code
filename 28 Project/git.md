@@ -392,4 +392,4 @@ Receiving objects: 100% (4/4), done.
 Subrata Mondal@LAPTOP-TCIJE5DP MINGW64 ~/OneDrive/Desktop/web devlopment
 $ git pull https://github.com/subratamondalnsec/aise-hi.git
 
-<!-- This command updates your local branch with the latest changes(modifing version) from the specified branch in the remote repository (commonly origin/main if using the main branch). -->
+This command updates your local branch with the latest changes(modifing version) from the specified branch in the remote repository (commonly origin/main if using the main branch)
